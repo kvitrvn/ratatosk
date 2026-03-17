@@ -59,5 +59,5 @@ internal/
 
 ## Skills
 
-<!-- @skill go-charm-tui .claude/skills/go-charm-ui.md -->
-Use the `go-charm-tui` skill whenever working on TUI code, Bubbletea models, Lipgloss layouts, pane navigation, key bindings, scrolling, overlays, or any terminal rendering in Go.
+<!-- @skill go-charm-ui .claude/skills/go-charm-ui.md -->
+Use the `go-charm-ui` skill whenever working on TUI code, Bubbletea models, Lipgloss layouts, pane navigation, key bindings, scrolling, overlays, or any terminal rendering in Go.
