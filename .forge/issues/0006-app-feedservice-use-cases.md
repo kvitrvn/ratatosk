@@ -1,7 +1,7 @@
 ---
 id: 6
 title: '[app] FeedService — use cases'
-status: in-progress
+status: closed
 type: task
 priority: medium
 author: mcp-agent
