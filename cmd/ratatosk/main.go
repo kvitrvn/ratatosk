@@ -4,12 +4,14 @@ import (
 	"fmt"
 	"os"
 
+	tea "github.com/charmbracelet/bubbletea"
 	"github.com/spf13/cobra"
 
 	"github.com/kvitrvn/ratatosk/internal/application"
 	"github.com/kvitrvn/ratatosk/internal/config"
 	"github.com/kvitrvn/ratatosk/internal/infrastructure/db"
 	"github.com/kvitrvn/ratatosk/internal/infrastructure/fetcher"
+	"github.com/kvitrvn/ratatosk/internal/interfaces/tui"
 )
 
 func main() {
@@ -53,9 +55,9 @@ func rootCmd() *cobra.Command {
 			return nil
 		},
 		RunE: func(cmd *cobra.Command, args []string) error {
-			// TUI placeholder — will be implemented in M5.
-			fmt.Println("ratatosk: TUI not yet implemented, use sub-commands.")
-			return nil
+			p := tea.NewProgram(tui.NewApp(svc), tea.WithAltScreen())
+			_, err := p.Run()
+			return err
 		},
 	}
 

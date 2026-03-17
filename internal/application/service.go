@@ -71,6 +71,11 @@ func (s *FeedService) MarkRead(articleID int64) error {
 	return s.articles.MarkRead(context.Background(), articleID)
 }
 
+// ListFeeds returns all subscribed feeds.
+func (s *FeedService) ListFeeds() ([]domain.Feed, error) {
+	return s.feeds.FindAll(context.Background())
+}
+
 func (s *FeedService) refresh(feed domain.Feed) error {
 	fetched, err := s.fetcher.Fetch(feed.URL)
 	if err != nil {
