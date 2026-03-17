@@ -1,7 +1,7 @@
 ---
 id: 5
 title: '[infra] HTTP fetcher gofeed'
-status: in-progress
+status: closed
 type: task
 priority: medium
 author: mcp-agent
