@@ -1,10 +1,11 @@
 ---
 id: 4
 title: '[infra] Repositories SQLite (feed + article)'
-status: open
+status: in-progress
 type: task
 priority: medium
 author: mcp-agent
+milestone: M2 – SQLite persistence
 created_at: "2026-03-17"
 updated_at: "2026-03-17"
 ---
