@@ -1,7 +1,7 @@
 ---
 id: 2
 title: '[domain] Interfaces FeedRepository & ArticleRepository'
-status: open
+status: closed
 type: task
 priority: medium
 author: mcp-agent
