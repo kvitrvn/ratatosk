@@ -1,7 +1,7 @@
 ---
 id: 4
 title: '[infra] Repositories SQLite (feed + article)'
-status: in-progress
+status: closed
 type: task
 priority: medium
 author: mcp-agent
