@@ -1,7 +1,7 @@
 ---
 id: 7
 title: '[cmd] Config Viper & commandes Cobra'
-status: in-progress
+status: closed
 type: task
 priority: medium
 author: mcp-agent
