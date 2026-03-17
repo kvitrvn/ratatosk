@@ -1,10 +1,11 @@
 ---
 id: 7
 title: '[cmd] Config Viper & commandes Cobra'
-status: open
+status: in-progress
 type: task
 priority: medium
 author: mcp-agent
+milestone: M4 – CLI & config
 created_at: "2026-03-17"
 updated_at: "2026-03-17"
 ---
