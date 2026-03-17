@@ -1,10 +1,11 @@
 ---
 id: 5
 title: '[infra] HTTP fetcher gofeed'
-status: open
+status: in-progress
 type: task
 priority: medium
 author: mcp-agent
+milestone: M3 – Fetcher & application service
 created_at: "2026-03-17"
 updated_at: "2026-03-17"
 ---
