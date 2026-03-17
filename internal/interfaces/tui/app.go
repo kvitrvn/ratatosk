@@ -94,9 +94,6 @@ func (m AppModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}
 		}
 		m.feedList.SetUnreadCount(msg.feedID, unread)
-		if m.focus == FocusDetail {
-			m.detail.SetArticle(m.articleList.Selected())
-		}
 
 	case refreshDoneMsg:
 		m.refreshing = false

@@ -1,6 +1,0 @@
-approvals_required: 1
-default_labels:
-    - bug
-    - feature
-    - enhancement
-ai_context_depth: 10

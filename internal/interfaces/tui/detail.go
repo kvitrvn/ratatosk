@@ -25,6 +25,9 @@ func (m *DetailModel) SetSize(w, h int) {
 	m.height = h
 	m.viewport.Width = w - frameSize
 	m.viewport.Height = h - 3 // title + date + separator
+	if m.article != nil {
+		m.viewport.SetContent(m.renderContent())
+	}
 }
 
 func (m *DetailModel) SetArticle(a *domain.Article) {
@@ -33,8 +36,15 @@ func (m *DetailModel) SetArticle(a *domain.Article) {
 		m.viewport.SetContent("")
 		return
 	}
-	m.viewport.SetContent(a.Description)
+	m.viewport.SetContent(m.renderContent())
 	m.viewport.GotoTop()
+}
+
+func (m *DetailModel) renderContent() string {
+	if m.article == nil || m.article.Description == "" {
+		return "(no content)"
+	}
+	return htmlToText(m.article.Description, m.viewport.Width)
 }
 
 func (m DetailModel) Update(msg tea.KeyMsg) (DetailModel, tea.Cmd) {
