@@ -47,6 +47,8 @@ func (m *DetailModel) renderContent() string {
 	return htmlToText(m.article.Description, m.viewport.Width)
 }
 
+func (m DetailModel) Article() *domain.Article { return m.article }
+
 func (m DetailModel) Update(msg tea.KeyMsg) (DetailModel, tea.Cmd) {
 	var cmd tea.Cmd
 	m.viewport, cmd = m.viewport.Update(msg)

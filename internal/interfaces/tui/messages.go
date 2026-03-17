@@ -13,3 +13,4 @@ type feedSubscribedMsg struct {
 	err  error
 }
 type markReadMsg struct{}
+type urlOpenedMsg struct{ err error }

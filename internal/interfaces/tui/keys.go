@@ -9,6 +9,7 @@ type keyMap struct {
 	Enter   key.Binding
 	AddFeed key.Binding
 	Refresh key.Binding
+	Open    key.Binding
 	Quit    key.Binding
 	Esc     key.Binding
 }
@@ -37,6 +38,10 @@ var keys = keyMap{
 	Refresh: key.NewBinding(
 		key.WithKeys("r"),
 		key.WithHelp("r", "refresh"),
+	),
+	Open: key.NewBinding(
+		key.WithKeys("o"),
+		key.WithHelp("o", "ouvrir dans le navigateur"),
 	),
 	Quit: key.NewBinding(
 		key.WithKeys("q", "ctrl+c"),

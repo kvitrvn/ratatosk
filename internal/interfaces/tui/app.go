@@ -2,6 +2,7 @@ package tui
 
 import (
 	"fmt"
+	"os/exec"
 
 	"github.com/charmbracelet/bubbles/key"
 	"github.com/charmbracelet/bubbles/spinner"
@@ -117,6 +118,11 @@ func (m AppModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		if sel := m.feedList.Selected(); sel != nil {
 			return m, loadArticlesCmd(m.svc, sel.ID)
 		}
+
+	case urlOpenedMsg:
+		if msg.err != nil {
+			m.statusMsg = fmt.Sprintf("Impossible d'ouvrir : %s", msg.err)
+		}
 	}
 
 	return m, nil
@@ -177,6 +183,22 @@ func (m AppModel) handleKey(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
 			}
 		}
 
+	case key.Matches(msg, keys.Open):
+		var link string
+		switch m.focus {
+		case FocusArticleList:
+			if sel := m.articleList.Selected(); sel != nil {
+				link = sel.Link
+			}
+		case FocusDetail:
+			if m.detail.Article() != nil {
+				link = m.detail.Article().Link
+			}
+		}
+		if link != "" {
+			return m, openURLCmd(link)
+		}
+
 	case key.Matches(msg, keys.Up), key.Matches(msg, keys.Down):
 		switch m.focus {
 		case FocusFeedList:
@@ -227,7 +249,7 @@ func (m AppModel) View() string {
 
 	status := m.statusMsg
 	if status == "" {
-		status = "a:add  r:refresh  tab:pane  enter:ouvrir  j/k:nav  q:quitter"
+		status = "a:add  r:refresh  tab:pane  enter:ouvrir  o:navigateur  j/k:nav  q:quitter"
 	}
 	if m.refreshing {
 		status = m.spinner.View() + " Rafraîchissement…"
@@ -268,6 +290,13 @@ func refreshAllCmd(svc *application.FeedService) tea.Cmd {
 	return func() tea.Msg {
 		errs := svc.RefreshAll()
 		return refreshDoneMsg{errs: errs}
+	}
+}
+
+func openURLCmd(url string) tea.Cmd {
+	return func() tea.Msg {
+		err := exec.Command("xdg-open", url).Start()
+		return urlOpenedMsg{err: err}
 	}
 }
 
