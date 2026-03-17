@@ -1,7 +1,7 @@
 ---
 id: 3
 title: '[infra] Connexion SQLite & migrations'
-status: in-progress
+status: closed
 type: task
 priority: medium
 author: mcp-agent

@@ -1,7 +1,7 @@
 ---
 id: 3
 title: 'feat(infra): connexion SQLite & migrations'
-status: open
+status: merged
 source_branch: feat/issue-0003-sqlite-connection
 target_branch: main
 author: mcp-agent
