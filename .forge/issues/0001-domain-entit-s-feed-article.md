@@ -1,7 +1,7 @@
 ---
 id: 1
 title: '[domain] Entités Feed & Article'
-status: open
+status: closed
 type: task
 priority: medium
 author: mcp-agent
